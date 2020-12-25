@@ -152,6 +152,11 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.18);
+}
+
+text-shadow: 0 5px 5px rgba(0, 0, 0, 0.18);
 img {
     width: 100%;
 }
@@ -622,6 +627,10 @@ a {
 
 .remove {
     display: none;
+}
+
+.fancy-font {
+    font-family: "Gloria Hallelujah", cursive;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
