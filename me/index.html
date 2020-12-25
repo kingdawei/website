@@ -1,0 +1,149 @@
+<html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/tomorrow.css" />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+    <title>Me | Donghyuk Kim</title>
+</head>
+
+
+<style>
+    .title a {
+        color: black;
+    }
+    
+    .article-item {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
+    }
+    
+    .article-item:nth-last-child(1) {
+        border-bottom: none;
+    }
+    
+    .article-item>a {
+        text-decoration: underline;
+    }
+    
+    .article-item>.title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="stack responsive-container" direction="column">
+
+
+        <div class="responsive-container second-res">
+            <div class="stack nav-container" vertical-layout="center" horizontal-layout="space-between">
+                <a href="/">
+                    <div class="stack beetle">
+                        <img src="/assets/img/beetle.svg" />
+                    </div>
+                </a>
+
+                <div class="stack menu-row">
+                    <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+                    <div class="menu-item menu-item-active" onclick="onMenuItemClick('/me')">me</div>
+                </div>
+
+                <div class="menu-icon" onclick="onMobileMenuOpenClick()">
+                    <img src="/assets/img/menu.svg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-mask remove"></div>
+        <div class="stack menu-row-mobile" direction="column">
+            <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+            <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+            <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+            <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+            <div class="menu-item menu-item-active" onclick="onMenuItemClick('/me')">me</div>
+
+            <div class="social-icons-mobile">
+                <div class="stack" horizontal-layout="space-between">
+                    <a href="https://github.com/kingdawei" target="_blank">
+                        <img src="/assets/social-icon/github.svg" />
+                        <p>GitHub</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/donghyukkim/" target="_blank">
+                        <img src="/assets/social-icon/linkedin.svg" />
+                        <p>Linkedin</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function onMenuItemClick(target) {
+                window.location.href = target
+            }
+
+            function onMobileMenuOpenClick() {
+                var mobileMenu = document.querySelectorAll('.menu-row-mobile')[0]
+                var menuBgMask = document.querySelectorAll('.bg-mask')[0]
+                if (mobileMenu.classList.contains('menu-row-mobile-active')) {
+                    menuBgMask.classList.remove('bg-mask-hide')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('remove')
+                    }, 500)
+                    mobileMenu.classList.remove('menu-row-mobile-active')
+                } else {
+                    menuBgMask.classList.remove('remove')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('bg-mask-hide')
+                    }, 10)
+                    mobileMenu.classList.add('menu-row-mobile-active')
+                }
+            }
+        </script>
+
+
+        <div class="stack" direction="column">
+
+
+            <div class="article-item">
+                <div class="title">
+                    Me
+                </div>
+                <div class="markdown abstract">
+                    <p> It is fascinating to ponder over how my past experiences have shaped who I am today. For instance, because I left my home country of South Korea and moved to the United States in 2006, I grew up to articulate my consciousness primarily
+                        in English. Life, in a way, feels like walking down the nodes of an enormous decision tree - every decision I make, however innocuous, leads to some sort of change. Though it is certainly fun to muse on the what could have been,
+                        the real wonder lies in the great possibilities ahead.
+                    </p>
+                    <p>I began my undergraduate endeavor as a pharmacy student, but I ended up finding my passion in the field of computer science. I received my B.A. in Computer Science from Boston College in May 2020. Starting in spring 2021, I will be
+                        furthering my studies in computer science at Worcester Polytechnic Institute as an M.S. student. My interests are in the areas of artificial intelligence, machine learning, and natural language processing.</p>
+
+                    <p>Besides studying computer science, my hobbies include weightlifting, hiking, and gaming. <br> I also enjoy learning about philosophy, and favorite philosopher is Ludwig Wittgenstein, who explored the philosophy of language. I believe
+                        that much of the disharmony present in our society largely stems from the misuse and misunderstanding language. <br>........
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="stack foot" horizontal-layout="center">
+            © Donghyuk Kim 2020
+            </stack>
+
+        </div>
+</body>
+
+</html>

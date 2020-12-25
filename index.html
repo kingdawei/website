@@ -1,0 +1,415 @@
+<html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/css/base.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/tomorrow.css" />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+    <title>Home | Donghyuk Kim</title>
+</head>
+
+
+<style>
+    .hero-wrapper {
+        background-color: rgba(223, 202, 202, 0.363);
+        padding: 40px 0 40px 0;
+    }
+    
+    .hero-img {
+        width: 40%;
+        max-width: calc(1200px * 0.5);
+    }
+    
+    .profile-box {
+        width: 60%;
+        margin-left: -10%;
+        background: #FFFFFF;
+        padding: 30px;
+        box-sizing: border-box;
+        box-shadow: 0px 0 40px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+    
+    .profile-box p {
+        margin: 5px 0;
+    }
+    
+    .profile-box>.name {
+        font-size: 2.5rem;
+    }
+    
+    .profile-box>.social-icons {
+        margin: 15px 0;
+    }
+    
+    .profile-box-text {
+        width: 45%;
+        max-width: 540px;
+        position: absolute;
+        left: 50px;
+        top: 175px;
+    }
+    
+    .profile-box-des {
+        position: absolute;
+        left: min(75px, calc(50px + 1.5vw));
+        top: min(290px, calc(180px + 9vw));
+        font-size: min(2.6rem, 3vw);
+        font-weight: bold;
+    }
+    
+    .main {
+        background-color: #FFFFFF;
+        padding: 50px 0 0 0;
+    }
+    
+    .body-title {
+        font-weight: bold;
+        margin-top: 30px;
+    }
+    
+    .body-title>.title {
+        font-size: 2rem;
+    }
+    
+    .me {
+        padding-top: 1rem;
+    }
+    
+    .me>p {
+        line-height: 1.5rem;
+    }
+    
+    .news {
+        padding-top: 1rem;
+    }
+    
+    .social-icons img {
+        width: 30px;
+        margin-right: 20px;
+    }
+    
+    .address {
+        text-align: center;
+    }
+    
+    @media (max-width: 480px) {
+        body {
+            padding-top: 80px !important;
+        }
+        .hero-res {
+            width: 100% !important;
+        }
+        .hero-warpper {
+            padding: 0;
+        }
+        .hero-container {
+            flex-direction: column;
+        }
+        .hero-img {
+            width: 100%;
+            position: unset;
+        }
+        .profile-box {
+            width: 90%;
+            margin: -20px 5% 0 5%;
+        }
+        .profile-box-text {
+            display: none;
+        }
+        .profile-box-des {
+            top: calc(100vw - 15px);
+            font-size: 1.3rem;
+            left: 10vw;
+        }
+        .main {
+            padding-top: 0;
+        }
+        .body-title>.title {
+            font-size: 1.7rem;
+        }
+    }
+    
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .nav-container {
+            width: calc(100% - 40px) !important;
+            margin: 0 20px !important;
+        }
+    }
+</style>
+
+<body>
+
+
+    <div class="responsive-container second-res">
+        <div class="stack nav-container" vertical-layout="center" horizontal-layout="space-between">
+            <a href="/">
+                <div class="stack beetle">
+                    <img src="/assets/img/beetle.svg" />
+                </div>
+            </a>
+
+            <div class="stack menu-row">
+                <div class="menu-item menu-item-active" onclick="onMenuItemClick('/')">home</div>
+                <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+                <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+                <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+                <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+            </div>
+
+            <div class="menu-icon" onclick="onMobileMenuOpenClick()">
+                <img src="/assets/img/menu.svg" />
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-mask remove"></div>
+    <div class="stack menu-row-mobile" direction="column">
+        <div class="menu-item menu-item-active" onclick="onMenuItemClick('/')">home</div>
+        <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+        <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+        <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+        <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+
+        <div class="social-icons-mobile">
+            <div class="stack" horizontal-layout="space-between">
+
+                <a href="https://github.com/kingdawei" target="_blank">
+                    <img src="/assets/social-icon/github.svg" />
+                    <p>GitHub</p>
+                </a>
+                <a href="https://www.linkedin.com/in/donghyukkim/" target="_blank">
+                    <img src="/assets/social-icon/linkedin.svg" />
+                    <p>Linkedin</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function onMenuItemClick(target) {
+            window.location.href = target
+        }
+
+        function onMobileMenuOpenClick() {
+            var mobileMenu = document.querySelectorAll('.menu-row-mobile')[0]
+            var menuBgMask = document.querySelectorAll('.bg-mask')[0]
+            if (mobileMenu.classList.contains('menu-row-mobile-active')) {
+                menuBgMask.classList.remove('bg-mask-hide')
+                setTimeout(() => {
+                    menuBgMask.classList.add('remove')
+                }, 500)
+                mobileMenu.classList.remove('menu-row-mobile-active')
+            } else {
+                menuBgMask.classList.remove('remove')
+                setTimeout(() => {
+                    menuBgMask.classList.add('bg-mask-hide')
+                }, 10)
+                mobileMenu.classList.add('menu-row-mobile-active')
+            }
+        }
+    </script>
+
+
+
+    <div class="hero-wrapper">
+
+        <div class="stack responsive-container hero-res" direction="column">
+            <div class="stack hero-container" vertical-layout="center">
+
+                <img class="hero-img" src="/assets/img/me.png" />
+
+                <div class="stack profile-box" direction="column" vertical-layout="center" horizontal-layout="center">
+                    <p class="name">Donghyuk Kim (David)</p>
+                    <p>B.A. in Computer Science, Boston College 2020</p>
+                    <p>Pursuing M.S. in Computer Science, WPI</p>
+
+
+                    <div class="social-icons">
+                        <div class="stack">
+                            <a href="https://github.com/kingdawei" target="_blank">
+                                <img src="/assets/social-icon/github.svg" />
+                            </a>
+                            <a href="/assets/dkim_resume.pdf" target="_blank">
+                                <img src="/assets/social-icon/resume.svg" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/donghyukkim/" target="_blank">
+                                <img src="/assets/social-icon/linkedin.svg" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="responsive-container stack main" direction="column">
+        <div class="body-title">
+            <div class="title">Me</div>
+        </div>
+
+        <div class="me">
+            <p> It is fascinating to ponder over how my past experiences have shaped who I am today. For instance, because I left my home country of South Korea and moved to the United States in 2006, I grew up to articulate my consciousness primarily in
+                English. Life, in a way, feels like walking down the nodes of an enormous decision tree - every decision I make, however innocuous, leads to some sort of change. Though it is certainly fun to muse on the what could have been, the real
+                wonder lies in the great possibilities ahead.
+            </p>
+            <p>I began my undergraduate endeavor as a pharmacy student, but I ended up finding my passion in the field of computer science. I received my B.A. in Computer Science from Boston College in May 2020. Starting in spring 2021, I will be furthering
+                my studies in computer science at Worcester Polytechnic Institute as an M.S. student. My interests are in the areas of artificial intelligence, machine learning, and natural language processing.</p>
+
+            <p>Besides studying computer science, my hobbies include weightlifting, hiking, and gaming. <br> I also enjoy learning about philosophy, and favorite philosopher is Ludwig Wittgenstein, who explored the philosophy of language. I believe that
+                much of the disharmony present in our society largely stems from the misuse and misunderstanding language. <br>........
+            </p>
+
+            <a href="/news">More Me >>></a>
+
+        </div>
+
+
+
+        <div class="body-title">
+            <div class="title">News</div>
+        </div>
+
+        <div class="markdown news">
+            <ul>
+
+                <li><strong>05/2020:</strong> I graduated from Boston College with B.A. in Computer Science</li>
+                <li><strong>01/2020:</strong> I will be working as a Teaching Assistant for CSCI2271 Computer Systems</li>
+
+            </ul>
+            <a href="/news">More News >>></a>
+        </div>
+
+        <div class="body-title">
+            <div class="title">Sample Projects</div>
+        </div>
+
+        <style>
+            .projects {
+                padding-top: 20px;
+            }
+            
+            .projects {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .projects p {
+                margin: 0;
+            }
+            
+            .projects>blockquote {
+                padding: 0;
+                border: none;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            
+            .projects>blockquote:nth-child(n) {
+                width: 200px;
+            }
+            
+            .projects>blockquote:nth-child(2n) {
+                margin-left: 10px;
+                width: calc(100% - 200px - 10px);
+                padding: 20px;
+            }
+            
+            .projects>blockquote:nth-child(2n-1) {
+                background-color: #FFFFFF;
+            }
+            
+            .projects>blockquote:nth-child(4n) {
+                background-color: #FFFFFF;
+            }
+            
+            @media (max-width: 480px) {
+                .projects>blockquote:nth-child(n) {
+                    width: 100%;
+                }
+                .projects>blockquote:nth-child(2n) {
+                    width: 100%;
+                    margin-left: 0;
+                }
+            }
+        </style>
+
+        <div class="markdown projects">
+
+            <body>
+                <blockquote>
+                    <p><img src="projects/assets/swe.png" alt=""></p>
+                </blockquote>
+                <blockquote>
+                    <p><a href="/projects/project-detail/peer-assessment/"><strong>Peer Assessment System</strong></a></p>
+                    <p>Donghyuk Kim, Richard Yang, Alex Xu, Seunghyun Nam</p>
+                    <p>Software Engineering CSCI3356 Project, Spring 2020 </p>
+                    <p><a href="projects/assets/swe_final_delivery.pdf" target="_blank">Report</a>,
+                        <a href="https://github.com/kingdawei/peerassessment" target="_blank">Github</a>,
+                        <a href="http://peerassessment.pythonanywhere.com/login" target="_blank">Application</a></p>
+                </blockquote>
+
+
+                <blockquote>
+                    <p><img src="projects/assets/lyric.png" alt=""></p>
+                </blockquote>
+                <blockquote>
+                    <p><a href="/projects/project-detail/lyric-generator/"><strong>Lyric Generator</strong></a></p>
+                    <p>Donghyuk Kim</p>
+                    <p>
+                        <a href="https://github.com/kingdawei/lyric_generator" target="_blank">Github</a>,
+                        <a href="https://lyricgenerate.herokuapp.com/" target="_blank">Application</a>
+                    </p>
+                </blockquote>
+
+
+
+                <blockquote>
+                    <p><img src="projects/assets/donation.png" alt=""></p>
+                </blockquote>
+                <blockquote>
+                    <p><a href="/projects/project-detail/donation-hub/"><strong>Donation Hub</strong></a></p>
+                    <p>Donghyuk Kim, Max Bahar</p>
+                    <p>Web App Development CSCI2254 Project, Spring 2020</p>
+                    <p><a href="https://bcwebcourse.github.io/creative-project-project-donation/" target="_blank">Application</a></p>
+                </blockquote>
+
+                <blockquote>
+                    <p><img src="projects/assets/nlp_poster.png" alt=""></p>
+                </blockquote>
+                <blockquote>
+                    <p><a href="/projects/project-detail/script-analysis"><strong>Script Analysis of Crime Show</strong></a></p>
+                    <p>Donghyuk Kim, Ashley Oh, Jessica Bolduc, Dipesh Patel </p>
+                    <p><i>Natural Language Processing CSCI3349 Project, Fall 2019 </i></p>
+                    <p><a href="/projects/assets/nlp_proj.pptx" target="_blank">Download-Poster</a></p>
+                </blockquote>
+            </body>
+            <a href="/projects">More Projects >>></a>
+        </div>
+
+        <div class="stack foot" horizontal-layout="center">
+            © Donghyuk Kim 2020
+            </stack>
+        </div>
+
+</body>
+
+<script>
+    function onLinkClick(url) {
+        window.open(url)
+    }
+</script>
+
+
+
+</html>

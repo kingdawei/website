@@ -1,0 +1,251 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/tomorrow.css" />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+    <title>Projects | Donghyuk Kim</title>
+</head>
+
+
+<style>
+    .markdown {
+        flex-wrap: wrap;
+    }
+    
+    .markdown p {
+        margin: 0;
+    }
+    
+    .markdown>blockquote {
+        padding: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    
+    .markdown>blockquote:nth-child(n) {
+        width: 200px;
+    }
+    
+    .markdown>blockquote:nth-child(2n) {
+        margin-left: 10px;
+        width: calc(100% - 200px - 10px);
+        padding: 20px;
+    }
+    
+    .markdown>blockquote:nth-child(2n-1) {
+        background-color: #FFFFFF;
+    }
+    
+    .markdown>blockquote:nth-child(4n) {
+        background-color: #FFFFFF;
+    }
+    
+    .markdown>p>img {
+        width: 30%;
+    }
+    
+    @media (max-width: 480px) {
+        .markdown>blockquote:nth-child(n) {
+            width: 100%;
+        }
+        .markdown>blockquote:nth-child(2n) {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+</style>
+
+<body>
+    <div class="stack responsive-container" direction="column">
+
+
+        <div class="responsive-container second-res">
+            <div class="stack nav-container" vertical-layout="center" horizontal-layout="space-between">
+                <a href="/">
+                    <div class="stack beetle">
+                        <img src="/assets/img/beetle.svg" />
+                    </div>
+                </a>
+
+                <div class="stack menu-row">
+                    <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+                    <div class="menu-item menu-item-active" onclick="onMenuItemClick('/projects')">projects</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+                </div>
+
+                <div class="menu-icon" onclick="onMobileMenuOpenClick()">
+                    <img src="/assets/img/menu.svg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-mask remove"></div>
+        <div class="stack menu-row-mobile" direction="column">
+            <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+            <div class="menu-item menu-item-active" onclick="onMenuItemClick('/projects')">projects</div>
+            <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+            <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+            <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+
+            <div class="social-icons-mobile">
+                <div class="stack" horizontal-layout="space-between">
+
+                    <a href="https://github.com/kingdawei" target="_blank">
+                        <img src="/assets/social-icon/github.svg" />
+                        <p>GitHub</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/donghyukkim/" target="_blank">
+                        <img src="/assets/social-icon/linkedin.svg" />
+                        <p>Linkedin</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function onMenuItemClick(target) {
+                if (target === '/cv')
+                    window.open('/assets/yiqinzhao-cv.pdf')
+                else window.location.href = target
+            }
+
+            function onMobileMenuOpenClick() {
+                var mobileMenu = document.querySelectorAll('.menu-row-mobile')[0]
+                var menuBgMask = document.querySelectorAll('.bg-mask')[0]
+                if (mobileMenu.classList.contains('menu-row-mobile-active')) {
+                    menuBgMask.classList.remove('bg-mask-hide')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('remove')
+                    }, 500)
+                    mobileMenu.classList.remove('menu-row-mobile-active')
+                } else {
+                    menuBgMask.classList.remove('remove')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('bg-mask-hide')
+                    }, 10)
+                    mobileMenu.classList.add('menu-row-mobile-active')
+                }
+            }
+        </script>
+
+
+        <div class="stack markdown">
+            <blockquote>
+                <p><img src="/projects/assets/swe.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/peer-assessment/"><strong>Peer Assessment System</strong></a></p>
+                <p>Donghyuk Kim, Richard Yang, Alex Xu, Seunghyun Nam</p>
+                <p><i>Software Engineering CSCI3356 Project, Spring 2020 </i></p>
+                <p><a href="/projects/assets/swe_final_delivery.pdf" target="_blank">Report</a>,
+                    <a href="https://github.com/kingdawei/peerassessment" target="_blank">Github</a>,
+                    <a href="http://peerassessment.pythonanywhere.com/login" target="_blank">Application</a></p>
+            </blockquote>
+
+            <blockquote>
+                <p><img src="/projects/assets/lyric.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/lyric-generator/"><strong>Lyric Generator</strong></a></p>
+                <p>Donghyuk Kim</p>
+                <p>
+                    <a href="https://github.com/kingdawei/lyric_generator" target="_blank">Github</a>,
+                    <a href="https://lyricgenerate.herokuapp.com/" target="_blank">Application</a>
+                </p>
+            </blockquote>
+
+            <blockquote>
+                <p><img src="/projects/assets/donation.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/donation-hub/"><strong>Donation Hub</strong></a></p>
+                <p>Donghyuk Kim, Max Bahar</p>
+                <p><i>Web App Development CSCI2254 Project, Spring 2020</i></p>
+                <p><a href="https://bcwebcourse.github.io/creative-project-project-donation/" target="_blank">Application</a></p>
+            </blockquote>
+
+            <blockquote>
+                <p><img src="/projects/assets/viterbi.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/part-of-speech/"><strong>Part-of-Speech Tagging with HMM</strong></a></p>
+                <p>Donghyuk Kim</p>
+                <p>
+                    <a href="https://github.com/kingdawei/https://github.com/kingdawei/hmm_pos" target="_blank">Github</a>
+                </p>
+            </blockquote>
+
+            <blockquote>
+                <p><img src="/projects/assets/insta.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/insta-clone/"><strong>Instagram Clone</strong></a></p>
+                <p>Donghyuk Kim</p>
+                <p><i>Web App Development CSCI2254 Assignment, Spring 2020</i> </p>
+                <p>
+                    <a href="https://bcwebcourse.github.io/social-media-kingdawei/" target="_blank">Application</a></p>
+            </blockquote>
+
+            <blockquote>
+                <p><img src="/projects/assets/nlp_poster.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/script-analysis"><strong>Script Analysis of Crime Show</strong></a></p>
+                <p>Donghyuk Kim, Ashley Oh, Jessica Bolduc, Dipesh Patel </p>
+                <p><i>Natural Language Processing CSCI3349 Project, Fall 2019 </i></p>
+                <p><a href="/projects/assets/nlp_proj.pptx" target="_blank">Download-Poster</a></p>
+            </blockquote>
+
+            <blockquote>
+                <p><img src="/projects/assets/ASL.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/asl-classification/"><strong>American Sign Language Image Classification</strong></a></p>
+                <p>Donghyuk Kim, Roger Wang, Jay Agrawal, Azim Keshwani, Matthew Kim <br>
+                    <i>Machine Learning CSCI3345 Project, Fall 2019</i><br>
+                    <a href="/projects/assets/ASL_report.pdf" target="_blank">Report</a>,
+                    <a href="https://colab.research.google.com/drive/1eogkyXs47nXEySZM2X7rOsYbbT8wfIZc" target="_blank">Code</a></p>
+            </blockquote>
+
+            <blockquote>
+                <p><img src="/projects/assets/subset.png" alt=""></p>
+            </blockquote>
+            <blockquote>
+                <p><a href="/projects/project-detail/subset-reduction/"><strong>Proof of Hardness: Subset-Sum Problem</strong></a></p>
+                <p>Donghyuk Kim <br>
+                    <i>Computability CSCI3390 Project, Fall 2018</i><br>
+                    <a href="/projects/assets/kim_complexity.pdf" target="_blank">Report</a>,
+                    <a href="https://github.com/kingdawei/3sat-to-subset-reduction" target="_blank">Github</a></p>
+            </blockquote>
+
+        </div>
+
+        <div class="stack foot" horizontal-layout="center">
+            © Donghyuk Kim 2020
+            </stack>
+        </div>
+
+</body>
+
+<script>
+    function onLinkClick(url) {
+        window.open(url)
+    }
+</script>
+
+
+
+</html>

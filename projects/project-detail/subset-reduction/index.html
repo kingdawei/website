@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/tomorrow.css" />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+    <title>Proof of Hardness | David Kim</title>
+</head>
+
+
+
+<body>
+    <div class="responsive-container stack" direction="column">
+        <div class="responsive-container second-res">
+            <div class="stack nav-container" vertical-layout="center" horizontal-layout="space-between">
+                <a href="/">
+                    <div class="stack beetle">
+                        <img src="/assets/img/beetle.svg" />
+                    </div>
+                </a>
+
+                <div class="stack menu-row">
+                    <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+                </div>
+
+                <div class="menu-icon" onclick="onMobileMenuOpenClick()">
+                    <img src="/assets/img/menu.svg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-mask remove"></div>
+        <div class="stack menu-row-mobile" direction="column">
+            <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+            <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+            <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+            <div class="menu-item " onclick="onMenuItemClick('/courses')">courses</div>
+            <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+
+            <div class="social-icons-mobile">
+                <div class="stack" horizontal-layout="space-between">
+                    <a href="https://github.com/kingdawei" target="_blank">
+                        <img src="/assets/social-icon/github.svg" />
+                        <p>GitHub</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/donghyukkim/" target="_blank">
+                        <img src="/assets/social-icon/linkedin.svg" />
+                        <p>Linkedin</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function onMenuItemClick(target) {
+                window.location.href = target
+            }
+
+            function onMobileMenuOpenClick() {
+                var mobileMenu = document.querySelectorAll('.menu-row-mobile')[0]
+                var menuBgMask = document.querySelectorAll('.bg-mask')[0]
+                if (mobileMenu.classList.contains('menu-row-mobile-active')) {
+                    menuBgMask.classList.remove('bg-mask-hide')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('remove')
+                    }, 500)
+                    mobileMenu.classList.remove('menu-row-mobile-active')
+                } else {
+                    menuBgMask.classList.remove('remove')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('bg-mask-hide')
+                    }, 10)
+                    mobileMenu.classList.add('menu-row-mobile-active')
+                }
+            }
+        </script>
+        <div class="markdown">
+            <h1>Proof of Hardness: Subset-Sum Problem</h1>
+
+            <img src="/projects/assets/subset.png" alt="">
+            <br><br>
+            <p>Donghyuk Kim, Richard Yang, Alex Xu, Seunghyun Nam<br>
+                <i>Computability and Complexity CSCI3390 Project, Fall 2018</i><br>
+                <a href="/projects/assets/kim_complexity.pdf" target="_blank">Report</a>,
+                <a href="https://github.com/kingdawei/3sat-to-subset-reduction" target="_blank">Github</a></p>
+            <p>The paper proves that the classic SUBSET-SUM problem is an NP-COMPLETE problem. If there exists an algorithm that can solve the SUBSET-SUM in polynomial time, P would equal NP. <br> The github program executes a polynomial time reduction from
+                3-SAT --> SUBSET-SUM, then solves SUBSET-SUM in pseudo-polynomial time. 3-SAT is a known NP-Complete problem. The reduction shows that SUBSET-SUM is also NP-Complete. If we find a polynomial time algorithm to solve SUBSET-SUM, we would
+                be able to solve 3-SAT in polynomial time and prove P = NP.
+
+                <div class="stack foot" horizontal-layout="center">
+                    © Donghyuk Kim 2020.
+                </div>
+        </div>
+</body>
+
+</html>

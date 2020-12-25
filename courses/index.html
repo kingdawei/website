@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/tomorrow.css" />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+    <title>Courses | Donghyuk Kim</title>
+</head>
+
+
+<style>
+    h1 {
+        width: 100%;
+    }
+    
+    .markdown {
+        flex-wrap: wrap;
+    }
+    
+    .markdown p {
+        margin: 0;
+    }
+    
+    .markdown>blockquote {
+        width: 18%;
+        margin-right: 2%;
+        padding: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        background: transparent;
+        cursor: pointer;
+    }
+    
+    .markdown>blockquote p:nth-child(2) {
+        color: #2230f3;
+    }
+    
+    .markdown>blockquote:hover p {
+        color: #2230f3;
+    }
+    
+    .markdown>blockquote>p:nth-child(1) {
+        margin-bottom: 1rem;
+    }
+    
+    .markdown>blockquote p {
+        width: 100%;
+        text-align: center;
+    }
+    
+    @media (max-width: 480px) {
+        .markdown>blockquote {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <div class="stack responsive-container" direction="column">
+        <div class="responsive-container second-res">
+            <div class="stack nav-container" vertical-layout="center" horizontal-layout="space-between">
+                <a href="/">
+                    <div class="stack beetle">
+                        <img src="/assets/img/beetle.svg" />
+                    </div>
+                </a>
+
+                <div class="stack menu-row">
+                    <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+                    <div class="menu-item menu-item-active" onclick="onMenuItemClick('/courses')">courses</div>
+                    <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+                </div>
+
+                <div class="menu-icon" onclick="onMobileMenuOpenClick()">
+                    <img src="/assets/img/menu.svg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-mask remove"></div>
+        <div class="stack menu-row-mobile" direction="column">
+            <div class="menu-item " onclick="onMenuItemClick('/')">home</div>
+            <div class="menu-item " onclick="onMenuItemClick('/projects')">projects</div>
+            <div class="menu-item " onclick="onMenuItemClick('/news')">news</div>
+            <div class="menu-item menu-item-active" onclick="onMenuItemClick('/courses')">courses</div>
+            <div class="menu-item " onclick="onMenuItemClick('/me')">me</div>
+
+            <div class="social-icons-mobile">
+                <div class="stack" horizontal-layout="space-between">
+                    <a href="https://github.com/kingdawei" target="_blank">
+                        <img src="/assets/social-icon/github.svg" />
+                        <p>GitHub</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/donghyukkim/" target="_blank">
+                        <img src="/assets/social-icon/linkedin.svg" />
+                        <p>Linkedin</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function onMenuItemClick(target) {
+                window.location.href = target
+            }
+
+            function onMobileMenuOpenClick() {
+
+                var mobileMenu = document.querySelectorAll('.menu-row-mobile')[0]
+                var menuBgMask = document.querySelectorAll('.bg-mask')[0]
+                if (mobileMenu.classList.contains('menu-row-mobile-active')) {
+                    menuBgMask.classList.remove('bg-mask-hide')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('remove')
+                    }, 500)
+                    mobileMenu.classList.remove('menu-row-mobile-active')
+                } else {
+                    menuBgMask.classList.remove('remove')
+                    setTimeout(() => {
+                        menuBgMask.classList.add('bg-mask-hide')
+                    }, 10)
+                    mobileMenu.classList.add('menu-row-mobile-active')
+                }
+            }
+        </script>
+
+
+        <div class="stack markdown">
+            <h1>Boston College</h1>
+            <ul>
+                <li><strong>CSCI3356</strong> SOFTWARE ENGINEERING</li>
+                <li><strong>CSCI3347</strong> ROBOTICS</li>
+                <li><strong>CSCI2254</strong> WEB APPLICATION DEVELOPMENT</li>
+                <li><strong>CSCI3345</strong> MACHINE LEARNING</li>
+                <li><strong>CSCI3349</strong> NATURAL LANGUAGE PROCESSING</li>
+                <li><strong>CSCI3383</strong> ALGORITHMS</li>
+                <li><strong>CSCI2257</strong> DATABASE SYSTEMS & APPLICATIONS</li>
+                <li><strong>CSCI2271</strong> COMPUTER SYSTEMS</li>
+                <li><strong>CSCI2244</strong> RANDOMNESS & COMPUTATION</li>
+                <li><strong>CSCI3390</strong> COMPUTABILITY & COMPLEXITY</li>
+                <li><strong>MATH2210</strong> LINEAR ALGEBRA</li>
+                <li><strong>ISYS2160</strong> SWIFT IOS DEVELOPMENT</li>
+            </ul>
+            <h1>University of Massachussetts Lowell</h1>
+            <ul>
+                <li><strong>COMP1020</strong> COMPUTING II + LAB</li>
+                <li><strong>COMP1010</strong> COMPUTING I + LAB</li>
+                <li><strong>EECE2650</strong> LOGIC DESIGN</li>
+                <li><strong>MATH3210</strong> DISCRETE STRUCTURES</li>
+                <li><strong>MATH1320</strong> CALCULUS II</li>
+            </ul>
+
+
+        </div>
+        <div class="stack foot" horizontal-layout="center">
+            © Donghyuk Kim 2020
+        </div>
+
+    </div>
+</body>
+
+</html>
